@@ -1,0 +1,34 @@
+﻿@model Entities.Models.Servicios
+
+@{
+    ViewBag.Title = "Detalles servicio";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Servicios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.descripción)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripción)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id_servicio }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

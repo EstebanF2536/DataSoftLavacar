@@ -1,0 +1,68 @@
+﻿@model Entities.VehiculoListViewModel.VehiculoListViewModel
+
+@{
+    ViewBag.Title = "Vehiculos";
+}
+
+@if (TempData["message"] != null)
+{
+    <script>alert('@TempData["message"]');</script>
+}
+<style type="text/css">
+
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #D2D4D7;
+        color: black;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #4169e1;
+        color: white;
+    }
+</style>
+<h2>Vehiculos</h2>
+
+<p>
+    @Html.ActionLink("Añadir nuevo vehiculo", "Create")
+</p>
+@Html.HiddenFor(model => model.IdServicio)
+<table class="table table-striped table-hover">
+    <tbody></tbody>
+    <tr>
+        <th>
+            Placa
+        </th>
+        <th>
+            Dueño
+        </th>
+        <th>
+            Marca
+        </th>
+        <th></th>
+    </tr>
+    </tbody>
+
+    @foreach (var item in Model.VehiculosList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dueño)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.marca)
+            </td>
+            <td>
+                <a class="btn btn-primary"
+                   @Html.ActionLink("Editar", "Edit", new { id = item.id_vehiculo }) |
+               <a class="btn btn-info" @Html.ActionLink("Detalles", "Details", new { id = item.id_vehiculo }) |
+               <a class="btn btn-danger" @Html.ActionLink("Eliminar", "Delete", new { id = item.id_vehiculo, idServicio = Model.IdServicio })
+
+            </td>
+        </tr>
+    }
+
+</table>

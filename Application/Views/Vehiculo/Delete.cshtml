@@ -1,0 +1,54 @@
+﻿@model Entities.Models.Vehiculo
+
+@{
+    ViewBag.Title = "Eliminar vehiculo";
+}
+
+<h2>Eliminar</h2>
+<h4>Vehiculo</h4>
+
+<div>
+    <h3>¿Está seguro de eliminar el vehiculo?</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dueño)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dueño)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marca)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Eliminar vehiculo" class="btn btn-danger" />
+
+        </div>
+        <div>
+            <br>
+            @Html.ActionLink("Regresar", "Index")
+
+        </div>
+    }
+</div>
